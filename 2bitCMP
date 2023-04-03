@@ -1,9 +1,9 @@
 module twobitcomp(
-    input a,
-    input b,
-    input R1,
-    input R2,
-    output out
+    input a, // input bit1
+    input b, // input bit2
+    input R1, // reference bit to compare with bit1
+    input R2, // reference bit to compare with bit2
+    output out // 1 if match
     );
 	 
 	 wire outxor1 , outxor2;
