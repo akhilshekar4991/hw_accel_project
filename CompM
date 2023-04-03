@@ -1,7 +1,7 @@
 module Comparator(
     input [8:0] data,
     input [8:0] Ref,
-    output res
+    output res // one if match
     );
 	 wire o1,o2,o3,o4;
 	 
