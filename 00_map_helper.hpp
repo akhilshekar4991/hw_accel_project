@@ -6,6 +6,7 @@
 #include <iostream>
 #include <chrono>
 #include <map>
+#include <unordered_map>
 
 using json = nlohmann::json;
 using namespace std;
@@ -78,4 +79,44 @@ microseconds queryMap(mapType &hashMap)
         checkMapExecutionTime<mapType, array<keyType, NUM_OF_QUERIES>, int>(hashMap, queryArray);
     
     return ExecutionTimeInUs;
+}
+
+/**
+ * @brief Function to read the JSON file for key and value pairs
+ * 
+ * @tparam mapType 
+ * @param hashMap   pointer to the hashmap to load the data into
+ * @param inputFilename    Name of the JSON file containing the key-value pairs
+ */
+
+template<typename mapType>
+void loadDatasetAndReturnMap(mapType &hashMap, string inputFilename){
+
+    // Check the time execution for performing all queries
+    auto start = high_resolution_clock::now();
+    ifstream    inputDatasetFile(inputFilename);
+    json    inputJson; 
+
+    srand(time(0));
+    inputDatasetFile >> inputJson;
+    inputDatasetFile.close();
+    auto stop = high_resolution_clock::now();
+
+    seconds timeTaken= duration_cast<seconds>(stop - start);
+    cout << "Time taken to read JSON file = " << timeTaken.count() << " seconds \n";
+
+    map<int, int>   plainStdMap;
+    int value;
+    for(int key=1; key < inputJson.size(); key++){
+        //string key = to_string(i * (rand() % 10000));
+        //cout << "key=" << str << " Value=" << inputJson[str] << endl;
+
+        // Read from JSON structure
+        string str = to_string(key); 
+        value = inputJson[str];
+
+        // Insert into the plain map
+        hashMap[key] = value;
+    }
+    cout << "Finished loading the JSON file into hashmap structure\n";
 }
