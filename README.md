@@ -1,5 +1,6 @@
 # hw_accel_project
 This is for the Hardware Accelerator (CS 6501) project
+<<<<<<< HEAD
 
 # To Conduct Benchmarking between Standard C++ Map and Hopscotch Map structure
 - We will generate half a million (500,000) key-value pairs of (int, int) type. 
@@ -13,3 +14,6 @@ Steps -
 4. $ cp -v test.out .. 
 5. $ cd .. 
 6. $ ./test.out 
+=======
+hshmp
+>>>>>>> 0a949df4bb7a60b821e53ff2936962157dfb24bd
