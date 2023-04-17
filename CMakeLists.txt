@@ -3,7 +3,7 @@ project(hello_cmake VERSION 0.1.0)
 
 add_compile_options(-Ofast)
 
-add_executable(test.out load_factor_study/02_lf_study.cpp)
+add_executable(test.out load_factor_study/03_construct_probe_hash_map.cpp)
 
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 
