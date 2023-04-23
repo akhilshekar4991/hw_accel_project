@@ -10,7 +10,7 @@ module Comparator(
 	 twobitcomp three(data[4],data[5],Ref[4],Ref[5],o3);
 	 twobitcomp four(data[6],data[7],Ref[6],Ref[7],o4);
 	 
-	 and final(out,o1,o2,o3,o4);
+	 and final(Ref,o1,o2,o3,o4);
 
 
 endmodule
