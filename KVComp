@@ -1,0 +1,41 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    01:51:48 04/23/2023 
+// Design Name: 
+// Module Name:    KVComp 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module KVComp(
+    input [64:0] KV,
+    input [64:0] Ref,
+    output res
+    );
+	
+	 wire o1,o2,o3,o4,o5,o6,o7,o8;
+	 
+		Comparator a (KV[7:0],Ref[7:0], o1);
+		Comparator b (KV[15:8],Ref[15:8], o2);
+		Comparator c (KV[23:16],Ref[23:16], o3);
+		Comparator d (KV[31:24],Ref[31:24], o4);
+		Comparator e (KV[39:32],Ref[39:32], o5);;
+		Comparator f (KV[47:40],Ref[47:40], o6);
+		Comparator g (KV[55:48],Ref[55:48], o7);
+		Comparator h (KV[64:56],Ref[64:56], o8);
+		
+		and final(res,o1,o2,o3,o4,o5,o6,o7,o8);
+		
+
+endmodule

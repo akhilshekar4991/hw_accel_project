@@ -1,0 +1,19 @@
+module twobitcomp(
+    input a, // input bit1
+    input b, // input bit2
+    input R1, // reference bit to compare with bit1
+    input R2, // reference bit to compare with bit2
+    output out // 1 if match
+    );
+	 
+	 wire outxor1 , outxor2;
+	 
+	 xor out1 (outxor1, a, R1);
+	 xor out2 (outxor2, b, R2);
+	 
+	 and final (out,~outxor1,~outxor2);
+	 
+	 
+
+
+endmodule
