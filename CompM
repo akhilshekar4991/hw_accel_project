@@ -1,0 +1,16 @@
+module Comparator(
+    input [8:0] data,
+    input [8:0] Ref,
+    output res // one if match
+    );
+	 wire o1,o2,o3,o4;
+	 
+	 twobitcomp one(data[0],data[1],Ref[0],Ref[1],o1);
+	 twobitcomp two(data[2],data[3],Ref[2],Ref[3],o2);
+	 twobitcomp three(data[4],data[5],Ref[4],Ref[5],o3);
+	 twobitcomp four(data[6],data[7],Ref[6],Ref[7],o4);
+	 
+	 and final(Ref,o1,o2,o3,o4);
+
+
+endmodule
