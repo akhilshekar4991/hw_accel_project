@@ -19,7 +19,7 @@ using namespace chrono;
 // #define     INPUT_DATA_FILENAME     "input_data1.json"
 
 #define     OUTPUT_DATA_FILENAME     "out.txt"
-#define     NUM_OF_BUCKETS 50
+#define     NUM_OF_BUCKETS 50000
 
 auto hash_func = [](const int& key) {
     return std::hash<int>{}(key);
@@ -29,14 +29,18 @@ int main(){
     unordered_map<int, int>   plainStdMap;
     HashMap<int, int> hmap(NUM_OF_BUCKETS, hash_func);
     loadDatasetAndReturnMap<unordered_map<int,int>>(plainStdMap, INPUT_DATA_FILENAME);
-    cout << "loading the unordered map finished " << endl;
+    cout << "loading the unordered map finished and size is:  " << plainStdMap.size() << endl;
     ofstream out(OUTPUT_DATA_FILENAME);
     cout << "Size of Hashmap = " << plainStdMap.size() << endl;
     cout << "\nLoad Factor = " << plainStdMap.load_factor() << endl;
+    int count = 0;
     for (auto i : plainStdMap)
     {
         hmap.put(i.first, i.second);
+        count++;
         //cout << "first: " << i.first << endl;
+        // if(count % 100000 == 0)
+        //     cout << "count : " << count << endl;
     }
     cout << "loading the hmap finished " << endl;
     int value = 0;size_t pos = 0;size_t bucket = 0;
